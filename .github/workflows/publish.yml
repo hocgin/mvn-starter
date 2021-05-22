@@ -5,6 +5,15 @@ on:
   push:
     branches:
       - main
+      - master
+    tags:
+      - 'v*'
+    paths-ignore:
+      - 'docs/**'
+      - 'scripts/**'
+      - '*.md'
+      - '*.editorconfig'
+      - '*.gitignore'
 
 jobs:
   build:

@@ -33,7 +33,6 @@
     <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
     <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
-    <lombok-maven-plugin.version>1.18.0.0</lombok-maven-plugin.version>
   </properties>
 
   <licenses>
