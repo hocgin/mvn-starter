@@ -33,6 +33,7 @@
     <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
     <maven-gpg-plugin.version>3.0.1</maven-gpg-plugin.version>
     <flatten-maven-plugin.version>1.1.0</flatten-maven-plugin.version>
+    <lombok-maven-plugin.version>1.18.0.0</lombok-maven-plugin.version>
   </properties>
 
   <licenses>
@@ -86,6 +87,10 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>flatten-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok-maven-plugin</artifactId>
       </plugin>
     </plugins>
     <pluginManagement>
@@ -160,6 +165,7 @@
               <additionalJOption>-Xdoclint:none</additionalJOption>
               <additionalJOption>--allow-script-in-comments</additionalJOption>
             </additionalJOptions>
+            <failOnError>false</failOnError>
           </configuration>
           <executions>
             <execution>
@@ -173,9 +179,17 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
+            <fork>true</fork>
             <source>${java.source.version}</source>
             <target>${java.target.version}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
+            <annotationProcessorPaths>
+              <path>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.20</version>
+              </path>
+            </annotationProcessorPaths>
           </configuration>
         </plugin>
       </plugins>
